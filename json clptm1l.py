@@ -8,7 +8,7 @@ response.raise_for_status()
 data = json.loads(response.text)
 freq = {}
 filtering_af = {}
-file = open('variants.txt','w')
+'''
 for i in range(len(data)):
     temp = data[i]["pop_acs"]
     hgvsp = data[i]['HGVSp']
@@ -25,9 +25,9 @@ for i in range(len(data)):
     c = response_variant.content
     soup2 = BeautifulSoup(c, 'html.parser')
     link = soup2.select('a[href="http://cardiodb.org/allelefrequencyapp/"]')
-    filtering_af[variant] = (link[0].text.strip('\n'))
-
-print(filtering_af)
+    filtering_af[variant] = (link[0].text.lstrip().strip('\n'))
+'''
+pprint(data[11])
 
 #pprint(freq)
 #print(sum(freq.values()))
